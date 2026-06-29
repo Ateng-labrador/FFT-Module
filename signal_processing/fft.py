@@ -1,6 +1,9 @@
 import cmath
 
 def fft_2(x):
+    """
+    
+    """
     N = len(x)
     if N == 1:
         return x
@@ -15,6 +18,9 @@ def fft_2(x):
 
 
 def fft_3(x):
+    """
+    
+    """
     N = len(x)
     if N == 1:
         return x
@@ -33,6 +39,9 @@ def fft_3(x):
 
 
 def fft_4(x):
+    """
+    
+    """
     N = len(x)
     if N == 1:
         return x
@@ -45,23 +54,22 @@ def fft_4(x):
         W1 = cmath.exp(-1j * 2 * cmath.pi * k / N) 
         W2 = cmath.exp(-1j * 2 * cmath.pi * 2 * k / N)
         W3 = cmath.exp(-1j * 2 * cmath.pi * 3 * k / N)
-        res[k] = A_res[k] + W1 * B_res[k] + W2 * C_res[k] + W3 * D_res
-        res[k+N//4] = A_res[k] - 1j * W1 * B_res[k] - W2 * C_res + 1j * W3 * D_res 
-        res[k+N//2] = A_res[k] - W1 * B_res[k] + W2 * C_res - W3 * D_res
-        res[k+3*N//4] = A_res[k] + 1j * W1 * B_res[k] - W2 * C_res - 1j * W3 * D_res
+        res[k] = A_res[k] + W1 * B_res[k] + W2 * C_res[k] + W3 * D_res[k]
+        res[k+N//4] = A_res[k] - 1j * W1 * B_res[k] - W2 * C_res[k] + 1j * W3 * D_res[k]
+        res[k+N//2] = A_res[k] - W1 * B_res[k] + W2 * C_res[k] - W3 * D_res[k]
+        res[k+3*N//4] = A_res[k] + 1j * W1 * B_res[k] - W2 * C_res[k] - 1j * W3 * D_res[k]
     return res
 
 
-
 def fft(x, radix = 2):
+    """
+    
+    """
     if radix == 2:
         return fft_2(x)
     elif radix == 3:
         return fft_3(x)
     elif radix == 4:
-        return fft_4
+        return fft_4(x)
     else:
-        raise IndexError("Index aout")
-
-    
-    
+        raise IndexError("Index out")

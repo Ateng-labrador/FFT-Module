@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import fft
-import ifft
+from signal_processing import fft, ifft
 from scipy.signal import find_peaks
 
 # redix 2_1

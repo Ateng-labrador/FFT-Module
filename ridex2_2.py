@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import fft
-import ifft
+from signal_processing import fft, ifft
 from scipy.signal import find_peaks
 
 # redix 2_2
@@ -14,6 +13,7 @@ fs = 1024
 N = 1024
 
 t = np.arange(N) / fs
+
 x = (A1 * np.sin(2 * np.pi * f * t) + 
      A2 * np.sin(2 * np.pi * 2 * f * t) + 
      A3 * np.sin(2 * np.pi * 3 * f * t))

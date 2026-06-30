@@ -63,7 +63,7 @@ def fft_4(x):
 
 def fft(x, radix = 2):
     """
-    
+    Fungsi Untuk melakukan kalkulasi fft
     """
     if radix == 2:
         return fft_2(x)

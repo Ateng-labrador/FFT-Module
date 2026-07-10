@@ -27,7 +27,7 @@ freq = np.arange(N) * fs / N
 fftredix2 = fft.fft(x)
 ifftredix = ifft.ifft(fftredix2)
 
-magnitude = np.abs(fftredix2)
+magnitude = 2 * np.abs(fftredix2) / N
 peaks, _ = find_peaks(magnitude, height = 0.1)
 
 plt.plot(freq, magnitude)

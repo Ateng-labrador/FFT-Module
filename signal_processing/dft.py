@@ -14,6 +14,11 @@ def widlet(N):
         res.append(row)
     return res
 
+
+def dct(x):
+    pass
+
+
 def dft(x):
     """
     Fungsi untuk menghitung dft
@@ -24,3 +29,8 @@ def dft(x):
         for n in range(len(widle_matriks[0])):
             res[k] += widle_matriks[k][n] * x[k] 
     return res
+
+
+def dft2d(x, y):
+    pass
+

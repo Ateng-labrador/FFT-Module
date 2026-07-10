@@ -1,4 +1,5 @@
 import cmath
+from signal_processing import fft
 
 def ifft_2(x):
     """
@@ -79,3 +80,25 @@ def ifft(x, redix = 2):
         return [v/len(x) for v in output]
     else:
         raise IndexError("Index Out")
+
+
+def ifft2d(x):
+    """
+    
+    """
+    res = []
+    for row in x:
+        res.append(ifft(row))
+
+    N = len(res)
+    M = len(res[0])
+
+    result = [[0] * M for _ in range(N)]
+
+    for col in range(M):
+        column = [res[row][col] for row in range(N)]
+        ifft_col = ifft(column)
+        for row in range(N):
+            result[row][col] = ifft_col[row]
+
+    return result

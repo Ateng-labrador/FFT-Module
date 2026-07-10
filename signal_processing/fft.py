@@ -76,3 +76,26 @@ def fft(x, radix = 2):
         return fft_4(x)
     else:
         raise IndexError("Index out")
+
+
+def fft2(image):
+    """
+
+    """
+    res = []
+    for row in image:
+        res.append(fft(row))
+    
+    N = len(res)
+    M = len(res[0])
+
+    result = [[0] * M for _ in range(N)]
+
+    for col in range(M):
+        column = []
+        for row in range(N):
+            column.append(res[row][col])
+        fft_col = fft(column)
+        for row in range(N):
+            result[row][col] = fft_col[row]
+    return result

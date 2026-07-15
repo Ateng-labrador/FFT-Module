@@ -82,6 +82,9 @@ def fft(x, radix = 2):
 
 
 def bluestein(a):
+  """
+  
+  """
   n = len(a)
   xi = cmath.exp(1j * 2 * cmath.pi / n)
 
@@ -110,6 +113,33 @@ def bluestein(a):
   return dft
 
 
+def rader(n):
+    pass
+
+
+def fft2(image):
+    """
+    Fungsi untuk menghitung FFT 2D menggunakan algoritma FFT Radix
+    """
+    res = []
+    for row in image:
+        res.append(fft(row))
+    
+    N = len(res)
+    M = len(res[0])
+
+    result = [[0] * M for _ in range(N)]
+
+    for col in range(M):
+        column = []
+        for row in range(N): 
+            column.append(res[row][col])
+        fft_col = fft(column)
+        for row in range(N):
+            result[row][col] = fft_col[row]
+    return result
+
+
 def bluestein2d(image):
     """
     Fungsi untuk menghitung FFT 2D menggunakan algoritma Bluestein.
@@ -136,25 +166,6 @@ def bluestein2d(image):
             result[row][col] = fft_col[row]
     return result
 
+def rader2d(n):
+    pass
 
-def fft2(image):
-    """
-    Fungsi untuk menghitung FFT 2D menggunakan algoritma FFT Radix
-    """
-    res = []
-    for row in image:
-        res.append(fft(row))
-    
-    N = len(res)
-    M = len(res[0])
-
-    result = [[0] * M for _ in range(N)]
-
-    for col in range(M):
-        column = []
-        for row in range(N):
-            column.append(res[row][col])
-        fft_col = fft(column)
-        for row in range(N):
-            result[row][col] = fft_col[row]
-    return result

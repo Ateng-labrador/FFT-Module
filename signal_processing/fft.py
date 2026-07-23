@@ -88,12 +88,18 @@ def bluestein(a):
   n = len(a)
   xi = cmath.exp(1j * 2 * cmath.pi / n)
 
-  u = [a[i] * xi**(-(i*i)/2) for i in range(n)]
-  v = [xi**((i*i)/2) for i in range(n)]
-  v_2 = [xi**(-(i * i)/2) for i in range(n)]
+# using euler to but with difference form
 
+# Construct the first chirp sequence (pre-multiplication)
+  u = [a[i] * xi**(-(i*i)/2) for i in range(n)]
+# Construct the convolution kernel
+  v = [xi**((i*i)/2) for i in range(n)]
+# Construct the post-multoplication sequence
+  v_2 = [xi**(-(i * i)/2) for i in range(n)]
+# Compute the FFT length
   l = 2 ** math.ceil(math.log2(2 * n - 1))
 
+# Zero-pad the first sequence
   u_l = u + [0] * (l - n)
 
   # Konstruksi v_l yang benar: v[0], v[1], ..., v[n-1], 0s, kemudian v[n-1] conjugate reverse

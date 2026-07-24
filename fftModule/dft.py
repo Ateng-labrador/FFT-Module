@@ -3,7 +3,7 @@ import cmath
 
 def widlet(N):
     """
-    Membuat Widle Matriks
+    Function to making widle matriks
     """
     res = []
     for k in range(N):
@@ -21,7 +21,7 @@ def dct(x):
 
 def dft(x):
     """
-    Fungsi untuk menghitung dft
+    Function to calculation Discrete Fourier Transform
     """
     widle_matriks = widlet(len(x))
     res = [0] * len(x)

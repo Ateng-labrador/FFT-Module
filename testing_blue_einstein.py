@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from signal_processing import fft, ifft
+from fftModule import fft, ifft
 from scipy.signal import find_peaks
 
 A = 1

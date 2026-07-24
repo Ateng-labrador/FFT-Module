@@ -1,5 +1,5 @@
 import cmath
-from signal_processing import fft
+from fftModule import fft
 
 def ifft_2(x):
     """

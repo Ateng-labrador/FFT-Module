@@ -1,4 +1,4 @@
-from signal_processing import fft, ifft
+from fftModule import fft, ifft
 from PIL import Image
 import numpy as np
 

@@ -1,7 +1,7 @@
 import cmath
-from signal_processing.helper import *
+from fftModule.helper import *
 import math
-from signal_processing import ifft
+from fftModule import ifft
 
 
 def fft_2(x):
@@ -154,7 +154,6 @@ def rader(x):
     else:
         raise IndexError("Length For Data must prime number")
     
-
 
 def fft2(image):
     """

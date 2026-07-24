@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from signal_processing import fft, ifft
+from fftModule import fft, ifft
 from scipy.signal import find_peaks
 
 # redix 2_2
@@ -10,7 +10,7 @@ A3 = 0.25
 
 f = 100
 fs = 1024
-N = 727
+N = 1024
 
 
 # beresin di sumbu y
@@ -24,7 +24,7 @@ x = (A1 * np.sin(2 * np.pi * f * t) +
 freq = np.arange(N) * fs / N
 
 
-fftredix2 = fft.rader(x)
+fftredix2 = fft.fft(x)
 ifftredix = ifft.ifft(fftredix2)
 
 magnitude = 2 * np.abs(fftredix2) / N

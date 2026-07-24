@@ -15,10 +15,9 @@ class testingfft(unittest.TestCase):
         res = np.fft.ifft(self.A)
         np.testing.assert_allclose(res, B)
 
-
 class testingfft2(unittest.TestCase):
     a = np.mgrid[:64, :64][0]
     def testfft2d(self):
         b = fM.fft.fft2(self.a)
         res = np.fft.fft2(self.a)
-        np.testing.assert_allclose(res, b, rtol=1e-7, atol=1e-7)
+        np.testing.assert_allclose(res, b)

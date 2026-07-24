@@ -9,4 +9,4 @@ dependencies = ["numpy"]
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["signal_processing*"]
+include = ["fftModule*"]
